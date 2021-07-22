@@ -12,6 +12,7 @@
         style="display:none" />
 <script>
     var receiveMessage = function (evt) {
+        console.log(evt.data)
         if (evt.data === 'MM:3PCunsupported') {
           document.getElementById('result').innerHTML = 'not supported';
         } else if (evt.data === 'MM:3PCsupported') {
