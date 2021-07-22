@@ -1,60 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>  
-<style>
-.testbutton {
-  background-color: blue;
-  color: yellow;
-  text-align: center;
-  border: 1px solid #000000;
-  border-radius: 8px;
-  min-width: 100px;
-  max-width: 100px;
-  cursor: pointer;
-}
-
-.testbutton:hover {
-  background-color: darkgreen;
-  color: yellow;
-}
-
-.small {
-  font-family: "Verdana";
-  font-size: x-small;
-}
-</style>
-<script>
-window.onload = function (){
-    var receiveMessage = function (evt) {
-      if (evt.data === 'MM:3PCunsupported') {
-        alert("Cookies had failed to be set; Blocked!!");
-    } else if (evt.data === 'MM:3PCsupported') {
-        // Third party cookies are supported
-        alert("Cookies had failed to be set; Blocked!!");
-      }
-    };
-    window.addEventListener("message", receiveMessage, false);
-};
-function samplestorage(){
-    var iframe = document.getElementById('iframeCookies');
-    iframe.src = iframe.src;
-}
-</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <div class="small">
-      go at Privacy &amp; Security, under browser settings, "Chrome,Opera"<br> then check\uncked [ ] Block third-party cookies and site data;
-    </div>
-
-    <br>
-
-    <div class="testbutton" onclick="samplestorage();">
-      Test Button
-    </div>
-
-    <br> page has to be refreshed if cookie settings are changed at browser settings;
-
-
-  <iframe id="iframeCookies" src="https://soufianeym-eng.github.io/check-iframe/ThirdPartyCookies2.html" style="display:none" />
+<script>
+    function are_cookies_enabled(){
+        var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+      
+          if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled){ 
+              document.cookie="testcookie";
+              cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false;
+          }
+          return cookieEnabled;
+      }
+    if(are_cookies_enabled()){
+        console.log('Accept third')
+    }
+    else{
+        console.log('dont third')
+        
+    }
+</script>
 </body>
 </html>
