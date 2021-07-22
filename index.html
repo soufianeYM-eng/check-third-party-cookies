@@ -8,21 +8,11 @@
 </head>
 <body>
 <script>
-    function are_cookies_enabled(){
-        var cookieEnabled = (navigator.cookieEnabled) ? true : false;
-      
-          if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled){ 
-              document.cookie="testcookie";
-              cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false;
-          }
-          return cookieEnabled;
-      }
-    if(are_cookies_enabled()){
-        console.log('Accept third')
-    }
-    else{
-        console.log('dont third')
-        
+    document.cookie = "ThirdPartyCookie=yes;";
+    if (document.cookie.indexOf("ThirdPartyCookie=") > -1) {
+    alert("3rd party cookies enabled");
+    } else {
+    alert("not 3rd party cookies enabled");
     }
 </script>
 </body>
