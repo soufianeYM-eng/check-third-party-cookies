@@ -28,8 +28,9 @@ window.onload = function (){
     var receiveMessage = function (evt) {
       if (evt.data === 'MM:3PCunsupported') {
         alert("Cookies had failed to be set; Blocked!!");
-      } else if (evt.data === 'MM:3PCsupported') {
+    } else if (evt.data === 'MM:3PCsupported') {
         // Third party cookies are supported
+        alert("Cookies had failed to be set; Blocked!!");
       }
     };
     window.addEventListener("message", receiveMessage, false);
