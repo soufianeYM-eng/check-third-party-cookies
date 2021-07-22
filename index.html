@@ -11,15 +11,12 @@
     <iframe src="https://mindmup.github.io/3rdpartycookiecheck/start.html"
         style="display:none" />
 <script>
-    var receiveMessage = function (evt) {
-        console.log(evt.data)
-        if (evt.data === 'MM:3PCunsupported') {
-          document.getElementById('result').innerHTML = 'not supported';
-        } else if (evt.data === 'MM:3PCsupported') {
-          document.getElementById('result').innerHTML = 'supported';
-        }
-      };
-      window.addEventListener("message", receiveMessage, false);
+function myCallback(is_enabled) {
+    if (is_enabled===1) {//third party cookies are enabled
+        console.log('Enabled')
+    }
+}
 </script>
+<script src="https://soufianeym-eng.github.io/check-iframe/third-party-cookies.php?callback=myCallback"></script>
 </body>
 </html>
