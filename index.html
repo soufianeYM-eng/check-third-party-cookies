@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var receiveMessage = function (evt) {
+        if (evt.data === 'MM:3PCunsupported') {
+          console.log('third party cookies are not supported');
+        } else if (evt.data === 'MM:3PCsupported') {
+          console.log('third party cookies are supported');
+        }
+      };
+      window.addEventListener("message", receiveMessage, false);
+    </script>
+  
+    <iframe src="LOCATION_OF_THE_SCRIPTS/start.html" style="display:none" />
+  </body>
+  
+</html>
